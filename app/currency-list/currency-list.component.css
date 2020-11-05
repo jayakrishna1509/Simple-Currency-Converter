@@ -1,0 +1,17 @@
+ul {
+  list-style: none;
+  padding: 24px;
+  position: relative;
+  margin: 0px;
+}
+
+p {
+  color: rgba(255, 255, 255, 0.56);
+  font-weight: 300;
+  text-align: center;
+  margin: 0px;
+}
+
+.error-message {
+  color: tomato;
+}

@@ -1,0 +1,36 @@
+<div class="wrapper">
+  <h1>
+    <a href="/" title="Currency Converter Home">
+      <img
+        src="assets/currency-converter-logo.svg"
+        alt=""
+        width="36"
+        height="36">
+      <span>Currency<br>Converter</span>
+    </a>
+  </h1>
+  <main>
+    <simple-money
+      [baseCurrencies]="baseCurrencies"
+      [otherCurrencies]="currencies"
+      (updateExchangeRates)="onExchangeRateUpdate($event)"
+      (errorMessage)="responseErrorMessage=$event">
+    </simple-money>
+    <div class="output-container">
+      <simple-loading-spinner *ngIf="isLoading"></simple-loading-spinner>
+      <simple-currency-list
+        *ngIf="!isLoading"
+        [rates]="newRates"
+        [currencies]="currencies"
+        [responseErrorMessage]="responseErrorMessage">
+      </simple-currency-list>
+    </div>
+  </main>
+  <footer>
+    <p *ngIf="newRates">
+      Last Update: {{ newRates.date | date }}
+    </p>
+  </footer>
+</div>
+
+

@@ -1,0 +1,21 @@
+<li>
+  <div
+    class="convertion-rates-container"
+    [attr.aria-label]="'Convertion result from ' + baseCurrencyCode + ' to ' + otherCurrencyCode">
+    <span
+      class="conversion-rate"
+      [attr.aria-label]="'1 ' + baseCurrencyCode + ' is equal to ' + (otherCurrencyConversionRate | number:'1.2-4') + otherCurrencyCode">
+      1 {{ baseCurrencyCode  }} ➔ {{ otherCurrencyConversionRate | number:'1.2-4' }} {{ otherCurrencyCode }}
+    </span>
+    <span
+      class="conversion-rate"
+      [attr.aria-label]="'1 ' + otherCurrencyCode + ' is equal to ' + (1 / otherCurrencyConversionRate | number:'1.2-4') + ' ' + otherCurrencyCode">
+        1 {{ otherCurrencyCode  }} ➔ {{ 1 / otherCurrencyConversionRate | number:'1.2-4' }} {{ baseCurrencyCode }}
+    </span>
+  </div>
+  <div
+    class="converted-money"
+    [attr.aria-label]="amount + ' ' + baseCurrencyCode + ' is equal to ' + (amount * otherCurrencyConversionRate | number:'1.2-2') + ' ' +  otherCurrencyCode">
+    {{ amount * otherCurrencyConversionRate | currency:otherCurrencyCode }}
+  </div>
+</li>
